@@ -14,7 +14,7 @@ app.get("/hello", (c) => {
 app.post("/search", async (c) => {
   const { query } = await c.req.json();
   return c.json({
-    results: `You searched for: ${query}`,
+    results: `You searched for hmmm: ${query}`,
   });
 });
 

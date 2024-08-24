@@ -1,21 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import { handleSearch } from "./actions";
 
 export default function Home() {
-  const [searchInput, setSearchInput] = useState("");
-  const [searchResults, setSearchResults] = useState();
+  const [result, setResult] = useState<string | null>(null);
 
-  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch("/api/search", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query: searchInput }),
-    });
-    const data = await res.json();
-    setSearchResults(data.results);
+    const formData = new FormData(e.currentTarget);
+    const response = await handleSearch(formData);
+    setResult(response.result);
   };
 
   return (
@@ -28,13 +22,11 @@ export default function Home() {
           Your Answers, <span>Simplified.</span>
         </h1>
         <div id="input-wrapper">
-          <form onSubmit={handleSearch}>
+          <form onSubmit={onSubmit}>
             <textarea
               name="search"
               rows={3}
               placeholder="Search something"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
             ></textarea>
             <button type="submit">
               <svg
@@ -56,7 +48,7 @@ export default function Home() {
           </form>
         </div>
       </div>
-      <div id="content">{searchResults && <p>{searchResults}</p>}</div>
+      <div id="content">{result && <p>{result}</p>}</div>
     </>
   );
 }
