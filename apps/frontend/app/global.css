@@ -1,0 +1,130 @@
+/**
+* @license
+*
+* Font Family: Kihim
+* Designed by: Rocky Malaviya
+* URL: https://www.fontshare.com/fonts/kihim
+* © 2024 Indian Type Foundry
+*
+* Kihim Regular
+
+*
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Space+Grotesk:wght@300..700&display=swap");
+
+:root {
+  --space-grotesk: "Space Grotesk", sans-serif;
+  --hind: "Hind", sans-serif;
+  --kihim: "Kihim-Regular", sans-serif;
+
+  color-scheme: light dark;
+  color: #f8fde7;
+  background-color: rgba(100, 125, 100, 0.1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Hind", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  max-width: 750px;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: auto;
+}
+
+#headsearch {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#headline {
+  text-align: center;
+  text-wrap: wrap;
+  font-family: var(--space-grotesk);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#headline span {
+  background: linear-gradient(to right, #f8fde7, #bbee11);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+}
+
+#input-wrapper textarea {
+  padding: 10px;
+  background: #333;
+  border-style: solid;
+  border-color: rgba(90, 110, 90, 0.5);
+  border-width: 2px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  resize: none;
+  font-family: inherit;
+  font-size: 1em;
+  background: rgba(90, 110, 90, 0.1);
+  width: 100%;
+}
+
+#input-wrapper textarea:focus {
+  outline: none;
+  border-width: 1px;
+  border-color: #f2fdce;
+}
+
+#input-wrapper button {
+  position: absolute;
+  border: none;
+  padding: 6px 9px;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+form {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  gap: 0 10px;
+  padding: 10px;
+}
+
+nav h2 {
+  margin: 0;
+  font-family: var(--space-grotesk);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#logo {
+  font-family: var(--kihim);
+  font-size: 1.3em;
+  color: #bbee11;
+}
