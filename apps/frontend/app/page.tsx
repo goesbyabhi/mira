@@ -9,7 +9,7 @@ export default function Home() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const response = await handleSearch(formData);
-    setResult(response.result);
+    setResult(JSON.stringify(response, null, 2));
   };
 
   return (
@@ -48,7 +48,7 @@ export default function Home() {
           </form>
         </div>
       </div>
-      <div id="content">{result && <p>{result}</p>}</div>
+      <div id="content">{result && <pre>{result}</pre>}</div>
     </>
   );
 }

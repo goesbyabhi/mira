@@ -12,10 +12,26 @@ app.get("/hello", (c) => {
 });
 
 app.post("/search", async (c) => {
-  const { query } = await c.req.json();
-  return c.json({
-    results: `You searched for hmmm: ${query}`,
-  });
+  try {
+    const { query } = await c.req.json();
+
+    const searxngResponse = await fetch(
+      `http://localhost:42069/search?q=${encodeURIComponent(query)}&format=json`,
+    );
+
+    const searxngResults = await searxngResponse.json();
+
+    return c.json({
+      results: searxngResults,
+    });
+  } catch (error: any) {
+    return c.json(
+      {
+        error: "Failed to search with error" + error.message,
+      },
+      500,
+    );
+  }
 });
 
 export const GET = handle(app);

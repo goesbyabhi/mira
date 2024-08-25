@@ -7,7 +7,7 @@ docker build -t mira-searxng .
 ```
 
 ```sh
-docker run -d -p 42069:8080 --name mira-searxng-container  mira-searxng:latest
+docker run -d -p 42069:8080 -v "./searxng:/etc/searxng" --name mira-searxng-container mira-searxng:latest
 ```
 
 ```sh
