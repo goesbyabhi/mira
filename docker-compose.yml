@@ -1,0 +1,12 @@
+services:
+  searxng:
+    image: searxng/searxng
+    container_name: searxng_instance
+    ports:
+      - "42069:8080"
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - BASE_URL=http://localhost:42069/
+      - INSTANCE_NAME=mira-searxng
+    restart: unless-stopped
